@@ -26,6 +26,13 @@ const Pagination = ({ totalItems, itemsPerPage, onPageChange }: Props) => {
   useEffect(() => {
     prevCurr.current = currentPage;
     const count = currentPage - prevCount;
+
+    if (currentPage == 5 && count > 0) {
+      setEndIndex((prev) => prev + 2);
+      setStartIndex((prev) => prev + 2);
+      return;
+    }
+
     if (currentPage > 4) {
       if (count > 0) {
         setStartIndex((prev) => prev + count);
@@ -34,9 +41,6 @@ const Pagination = ({ totalItems, itemsPerPage, onPageChange }: Props) => {
         setStartIndex((prev) => prev - Math.abs(count));
         setEndIndex((prev) => prev - Math.abs(count));
       }
-    } else if (currentPage % 5 == 0) {
-      setEndIndex((prev) => prev + 2);
-      setStartIndex((prev) => prev + 2);
     } else {
       setEndIndex(5);
       setStartIndex(0);
