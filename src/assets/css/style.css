@@ -1,0 +1,21 @@
+.container {
+  width: 90%; /* Default width for small screens */
+  max-width: 1200px; /* Limit the maximum width */
+  margin: 0 auto; /* Center the container */
+  padding: 16px; /* Add padding inside */
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+/* For tablets (min-width: 768px) */
+@media (min-width: 768px) {
+  .container {
+    width: 85%; /* Slightly wider */
+  }
+}
+
+/* For desktops (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .container {
+    width: 80%; /* Even wider for larger screens */
+  }
+}
