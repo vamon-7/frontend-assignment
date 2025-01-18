@@ -34,6 +34,9 @@ const Pagination = ({ totalItems, itemsPerPage, onPageChange }: Props) => {
         setStartIndex((prev) => prev - Math.abs(count));
         setEndIndex((prev) => prev - Math.abs(count));
       }
+    } else if (currentPage % 5 == 0) {
+      setEndIndex((prev) => prev + 2);
+      setStartIndex((prev) => prev + 2);
     } else {
       setEndIndex(5);
       setStartIndex(0);
