@@ -33,6 +33,12 @@ const Pagination = ({ totalItems, itemsPerPage, onPageChange }: Props) => {
       return;
     }
 
+    if (currentPage <= totalPages && currentPage > totalPages - 2) {
+      setStartIndex(totalPages - 5);
+      setEndIndex(totalPages);
+      return;
+    }
+
     if (currentPage > 4) {
       if (count > 0) {
         setStartIndex((prev) => prev + count);
